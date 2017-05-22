@@ -35,14 +35,20 @@
 
 <div id="author">
 {{ if .Site.Copyright }}
-{{ .Site.Copyright | safeHTML }}
+    {{- .Site.Copyright | safeHTML -}}
 {{ else }}
-{{ if .Site.Author }}<b>{{ .Site.Author.name | safeHTML }}</b>{{ end }}
-{{ if and .IsPage .Params.license }}
-<a rel="license" href="{{ .Params.license.url }}">{{ .Params.license.name }}</a>
-{{ else if .Site.Params.license }}
-<a rel="license" href="{{ .Site.Params.license.url }}">{{ .Site.Params.license.name }}</a>
-{{ end }}
+    {{- if .Site.Params.author -}}
+        {{- if .Site.Params.author.url -}}
+            <b><a href="{{ .Site.Params.author.url | safeURL }}">{{ .Site.Params.author.name }}</b></a>
+        {{- else -}}
+            <b>{{ .Site.Params.author.name }}</b>
+        {{- end -}}
+    {{- end -}}
+    {{- if and .IsPage .Params.license -}}
+        <a rel="license" href="{{ .Params.license.url }}">{{ .Params.license.name }}</a>
+    {{- else if .Site.Params.license -}}
+        <a rel="license" href="{{ .Site.Params.license.url }}">{{ .Site.Params.license.name }}</a>
+    {{- end -}}
 {{ end }}
 </div>
 </footer>
