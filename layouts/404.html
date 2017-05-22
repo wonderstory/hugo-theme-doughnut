@@ -1,0 +1,51 @@
+{{ define "title" }}Not Found - {{ end }}
+
+
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+<p>Can I help you with anything?</p>
+
+<div id="general">
+
+<section>
+<h2>Misc</h2>
+{{ range $section_name, $section := .Site.Sections }}
+{{ if not $section_name }}
+<ul>
+{{ range $section.Pages }}
+<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+{{ end }}
+</ul>
+{{ end }}
+{{ end }}
+</section>
+
+<section>
+<h2>Division</h2>
+<ul>
+{{ range $section_name, $section := .Site.Sections }}
+{{ if $section_name }}
+<li><a href="{{ $section_name | absURL }}/">{{ $section_name }}</a></li>
+{{ end }}
+{{ end }}
+</ul>
+</section>
+
+<section>
+<h2>Classified</h2>
+{{ range $taxonomy_name, $taxonomy := .Site.Taxonomies }}
+<section>
+<h3><a href="{{ $taxonomy_name | absURL }}/">{{ $taxonomy_name }}</a></h3>
+{{ range $key, $value := $taxonomy }}
+<ul>
+<li><a href="{{ delimit (slice $taxonomy_name $key) "/" | absURL }}/">{{ $key }}</a></li>
+</ul>
+{{ end }}
+</section>
+{{ end }}
+</section>
+
+</div>
+{{ end }}
+

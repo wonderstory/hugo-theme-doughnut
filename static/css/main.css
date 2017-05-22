@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu:300,400,700');
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: 16px;
+}
+h1, h2, h3, h4, h5, h6,
+div#logo a, nav#menu, time, span.section, span.tags,
+div#paging, div#neighbors,
+div#author {
+    font-family: 'Ubuntu', 'Yu Gothic Medium', 'YuGothic', sans-serif;
+}
+
+div#logo.wd > *::before,
+.content h2::before,
+.content h3::before,
+.content h4::before {
+    font-family: "FontAwesome", "Ubuntu", sans-serif;
+    font-size: 40px;
+    content: "\f10c";
+    color: #eee6e0;
+    position: absolute;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    z-index: -9;
+}
+div#logo.wd > *::before {
+    font-size: 140px;
+    margin-top: -.7em;
+    margin-left: -1em;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    height: 100%;
+    font-size: 16px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.6;
+    font-family: 'Open Sans', 'Yu Gothic Medium', 'YuGothic', sans-serif;
+    font-weight: 400;
+    color: #222;
+    background: #fcfaf9;
+}
+
+body > * {
+    width: 100%;
+    padding: 0 16px;
+    margin-left: 100px;
+    margin-right: 100px;
+    max-width: 650px;
+}
+
+
+body > header {
+    margin-top: 48px;
+}
+
+div#logo h1,
+div#logo a {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+nav#menu > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+nav#menu a {
+    display: block;
+    margin-right: 16px;
+    font-weight: 300;
+    color: #333;
+}
+
+body > header {
+    margin-bottom: 48px;
+}
+
+
+main > h1 {
+    font-size: 20px;
+    display: inline-block;
+}
+main > h2 {
+    font-size: 20px;
+}
+main > h1 + h2 {
+    font-size: 14px;
+    font-weight: 300;
+    position: static;
+    display: inline-block;
+    margin-left: 4px;
+    color: #666;
+}
+main > div + h2 {
+    margin-top: 48px;
+}
+
+main > div article,
+main > div section {
+    margin: 16px 0;
+}
+main > article {
+    margin: 0;
+}
+
+@media (min-width: 600px) {
+main article > h3,
+main article > time {
+    display: inline-block;
+}
+}
+main article > time,
+main article > span.section,
+main article > span.tags {
+    font-size: 12px;
+    font-weight: 300;
+}
+main article > h3 {
+    font-weight: 400;
+    margin-right: 4px;
+}
+main article > span a {
+    padding: 1px 3px;
+    border: solid 1px #999 !important;
+    border-radius: 10%;
+}
+main article > time,
+main article > span.tags a {
+    color: #666;
+}
+main article > span.section a {
+    background: #666;
+    color: #fff;
+}
+
+main article > h1 {
+    font-size: 20px;
+}
+
+div.content {
+    margin-top: 48px;
+}
+div#neighbors {
+    margin-top: 48px;
+}
+
+
+div#neighbors a:first-child::after {
+    display: block;
+    content: " "
+}
+div#neighbors a::before {
+    font-family: "FontAwesome", "Ubuntu", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    display: inline-block;
+    width: 5em;
+    color: #999;
+}
+div#neighbors a[rel=prev]::before {
+    content: "\f10c  later";
+}
+div#neighbors a[rel=next]::before {
+    content: "\f10c  earlier";
+}
+
+main #general {
+    margin-top: 48px;
+}
+main #general section section {
+    margin-left: 16px;
+}
+main #general ul {
+    margin: 0;
+}
+
+main {
+    margin-bottom: 48px;
+}
+
+
+div#paging a {
+    padding: 1px 8px;
+    border: solid 1px #999;
+    border-radius: 10%;
+    font-weight: 300;
+} 
+div#paging a.current {
+    border: dashed 1px #ccc;
+}
+div#paging a mark {
+    color: #ccc;
+} 
+
+
+/*
+footer > div#link {
+    display: inline;
+    margin-right: 8px;
+}*/
+footer div#link a {
+    margin-right: 4px;
+}
+footer div#author {
+/*    display: inline-block;
+*/
+    font-size: 14px;
+}
+footer div#author b {
+    margin-right: 4px;
+    font-weight: 700;
+    color: #666;
+}
+footer div#author a[rel=license] {
+    border-bottom: solid 1px #ccc;
+    font-weight: 300;
+}
+
+body > footer {
+    margin-bottom: 16px;
+}
+
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+main a[href] {
+    border-bottom: solid 1px #ccc;
+}
+
+a mark {
+    background: inherit;    
+}
+nav a mark {
+    font-weight: 200;
+    color: #ccc;
+}
+
+
+.content pre {
+    padding: 1px 3px;
+    background: #eee6e0;
+    overflow: auto;
+}
+
+.content code {
+    padding: 1px 3px;
+    background: #eee6e0;    
+}
+.content pre code {
+    padding: 0;
+    background: transparent;
+}

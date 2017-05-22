@@ -1,0 +1,29 @@
+{{ define "title" }}{{ .Title }} - {{ end }}
+
+
+{{ define "head" }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AlternativeOutputFormats }}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">{{ end }}
+{{ end }}
+
+
+{{ define "main" }}
+<article>
+<h1>{{ .Title }}</h1>
+
+{{ .Render "item-time" }}
+{{ .Render "item-tags" }}
+
+<div class="content">
+{{ .Content }}
+</div>
+</article>
+
+{{ if or .PrevInSection .NextInSection }}
+<div id="neighbors">
+{{ with .PrevInSection }}<a rel="prev" href="{{ .URL }}">{{ .Title }}</a>{{ end }}
+{{ with .NextInSection }}<a rel="next" href="{{ .URL }}">{{ .Title }}</a>{{ end }}
+</div>
+{{ end }}
+
+{{ end }}

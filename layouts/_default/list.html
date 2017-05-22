@@ -1,0 +1,25 @@
+{{ define "title" }}{{ .Title }} - {{ end }}
+
+
+{{ define "head" }}
+{{ if .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ .Title }} in {{ .Site.Title }}" href="{{ .RSSLink }}">{{ end }}
+{{ end }}
+
+
+{{ define "main" }}
+{{ $pagination := (.Paginate .Data.Pages.ByDate.Reverse).Pages }}
+<h1>{{ .Title }}</h1>
+{{ if and ($pagination) (gt .Paginator.TotalPages 1) }}<h2>page {{ .Paginator.PageNumber }}</h2>{{ end }}
+
+<div>
+{{ range $pagination }}
+<article>
+{{ .Render "item-title" }}
+{{ .Render "item-time" }}
+{{ .Render "item-tags" }}
+</article>
+{{ end }}
+</div>
+
+{{ partial "pagination.html" . }}
+{{ end }}

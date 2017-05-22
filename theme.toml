@@ -1,0 +1,12 @@
+name        = "Doughnut"
+license     = "MIT"
+licenselink = "https://github.com/wonderstory/hugo-theme-doughnut/blob/master/LICENSE.md"
+description = "Love Doughnut"
+homepage    = "https://github.com/wonderstory/hugo-theme-doughnut"
+tags        = ["minimal", "simple", "blog", "font awesome"]
+features    = []
+min_version = 0.20
+
+[author]
+  name      = "wonderstory"
+  homepage  = "https://mvrck.jp"

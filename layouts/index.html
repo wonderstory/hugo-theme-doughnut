@@ -1,0 +1,20 @@
+{{ define "head" }}
+{{ if .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ .Site.Title }}" href="{{ .RSSLink }}">{{ end }}
+{{ end }}
+
+
+{{ define "main" }}
+<h2>Latest</h2>
+
+<div>
+{{ range first 5 .Data.Pages }}
+<article>
+{{ .Render "item-title" }}
+{{ .Render "item-time" }}
+{{ .Render "item-section" }}
+{{ .Render "item-tags" }}
+</article>
+{{ end }}
+</div>
+
+{{ end }}

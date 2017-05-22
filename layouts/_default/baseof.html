@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+<head>
+{{ partial "meta.html" . }}
+<title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+{{ block "head" . }}{{ end }}
+</head>
+
+<body>
+
+<header>
+<div id="logo"{{ if .Site.Params.withdoughnutlogo }} class="wd"{{ end }}>
+{{ if .IsHome }}
+<h1>{{ .Site.Title }}</h1>
+{{ else }}
+<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+{{ end }}
+</div>
+
+<nav id="menu">
+{{ partial "menu.html" . }}
+</nav>
+</header>
+
+<main>
+{{ block "main" . }}{{ end }}
+</main>
+
+<footer>
+<div id="link">{{ $iconsize := .Site.Params.linkiconsize | default "lg" | plainify }}
+{{ range .Site.Params.links }}
+<a href="{{ .url | safeURL }}" aria-label="{{ .title | plainify }}"><i class="fa fa-{{ $iconsize }} fa-{{ .fa | plainify }}" aria-hidden="true"></i></a>
+{{ end }}
+</div>
+
+<div id="author">
+{{ if .Site.Copyright }}
+{{ .Site.Copyright | safeHTML }}
+{{ else }}
+{{ if .Site.Author }}<b>{{ .Site.Author.name | safeHTML }}</b>{{ end }}
+{{ if and .IsPage .Params.license }}
+<a rel="license" href="{{ .Params.license.url }}">{{ .Params.license.name }}</a>
+{{ else if .Site.Params.license }}
+<a rel="license" href="{{ .Site.Params.license.url }}">{{ .Site.Params.license.name }}</a>
+{{ end }}
+{{ end }}
+</div>
+</footer>
+
+{{ template "_internal/google_analytics_async.html" . }}
+</body>
+</html>

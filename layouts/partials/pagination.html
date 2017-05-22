@@ -1,0 +1,29 @@
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+<div id="paging">
+    {{ if and (gt .Paginator.TotalPages 2) (ne .Paginator.PageNumber 1) }}
+    <a rel="first" href="{{ .Paginator.First.URL }}">First</a>
+    {{ end }}
+
+    {{ if .Paginator.HasPrev }}
+    <a rel="prev" href="{{ .Paginator.Prev.URL }}">Prev</a>
+    {{ end }}
+
+    {{ $offset := 3 }}
+    {{ $targets := seq (sub .Paginator.PageNumber $offset) 1 (add .Paginator.PageNumber $offset) }}
+    {{ range where .Paginator.Pagers "PageNumber" "in" $targets }}
+    {{ if eq .PageNumber $.Paginator.PageNumber }}
+    <a class="current"><mark>{{ .PageNumber }}</mark></a>
+    {{ else }}
+    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{ end }}
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+    <a rel="next" href="{{ .Paginator.Next.URL }}">Next</a>
+    {{ end }}
+
+    {{ if and (gt .Paginator.TotalPages 2) (ne .Paginator.PageNumber .Paginator.TotalPages) }}
+    <a rel="last" href="{{ .Paginator.Last.URL }}">Last</a>
+    {{ end }}
+</div>
+{{ end }}

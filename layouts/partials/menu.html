@@ -1,0 +1,25 @@
+{{ $current := trim (.Permalink | relURL) "/" }}
+<ul>
+{{ range .Site.Menus.main }}
+{{ if .HasChildren }}
+<li{{ with .Identifier }} class="{{ . }}"{{ end }}>
+<a>{{ .Pre }}{{ .Name }}</a>
+<ul>
+{{ range .Children }}
+<li{{ with .Identifier }} class="{{ . }}"{{ end }}>
+<a href="{{ .URL }}">{{ .Name }}</a>
+</li>
+{{ end }}
+</ul>
+{{ else }}
+<li{{ with .Identifier }} class="{{ . }}"{{ end }}>
+{{ $target := trim (delimit (slice $.Site.BaseURL .URL) "/" | relURL) "/" }}
+{{ if eq (string $current) (string $target) }}
+<a><mark>{{ .Pre }}{{ .Name }}</mark></a>
+{{ else }}
+<a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a>
+{{ end }}
+{{ end }}
+</li>
+{{ end }}
+</ul>
