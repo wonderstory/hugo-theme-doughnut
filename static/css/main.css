@@ -5,6 +5,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 16px;
 }
 h1, h2, h3, h4, h5, h6,
+figcaption,
 div#logo a, nav#menu, time, span.section, span.tags,
 div#paging, div#neighbors,
 div#author {
@@ -122,7 +123,7 @@ main article > h3,
 main article > time {
     display: inline-block;
 }
-}
+}/**/
 main article > time,
 main article > span.section,
 main article > span.tags {
@@ -260,9 +261,28 @@ nav a mark {
 
 .content code {
     padding: 1px 3px;
-    background: #eee6e0;    
+    background: #eee6e0;
 }
 .content pre code {
     padding: 0;
     background: transparent;
+}
+
+
+.content figure {
+    margin: 1em 0 auto;
+}
+.content figure img,
+.content figure > * {
+    width: 100%;
+}
+@media (min-width: 600px) {
+.content figure img,
+.content figure > * {
+    width: auto;
+}
+}/**/
+.content figure figcaption {
+    font-size: 12px;
+    color: #666;
 }
