@@ -1,0 +1,11 @@
+{{ if .IsNamedParams }}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    <figcaption>{{ .Get "caption" }}</figcaption>
+    {{ .Inner }}
+</figure>
+{{ else }}
+<figure{{ if len .Params | eq 2 }} class="{{ .Get 1 }}"{{ end }}>
+    <figcaption>{{ .Get 0 }}</figcaption>
+    {{ .Inner }}
+</figure>
+{{ end }}
