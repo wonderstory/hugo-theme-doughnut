@@ -127,7 +127,7 @@ main article > time {
 main article > time,
 main article > span.section,
 main article > span.tags {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
 }
 main article > h3 {
@@ -138,6 +138,13 @@ main article > span a {
     padding: 1px 3px;
     border: solid 1px #999 !important;
     border-radius: 10%;
+}
+main article > span.modified {
+    font-size: 11px;
+    color: #876;
+}
+main article > span.modified::before {
+    content: "--";
 }
 main article > time,
 main article > span.tags a {
