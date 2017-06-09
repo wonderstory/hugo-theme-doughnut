@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1, h2, h3, h4, h5, h6,
 figcaption,
-div#logo a, nav#menu, time, span.section, span.tags,
+div#logo a, nav#menu, time, p.section, p.tags,
 div#paging, div#neighbors,
 div#author {
     font-family: 'Ubuntu', 'Yu Gothic Medium', 'YuGothic', sans-serif;
@@ -120,13 +120,18 @@ main > article {
 
 @media (min-width: 600px) {
 main article > h3,
-main article > time {
+main article > p {
     display: inline-block;
 }
 }/**/
-main article > time,
-main article > span.section,
-main article > span.tags {
+main article > p {
+    margin: 1px 0;
+}
+main article > header p {
+    margin: 4px 0;
+}
+main article > header,
+main article > p {
     font-size: 14px;
     font-weight: 300;
 }
@@ -134,23 +139,32 @@ main article > h3 {
     font-weight: 400;
     margin-right: 4px;
 }
-main article > span a {
+main article > header p a,
+main article > p a {
     padding: 1px 3px;
     border: solid 1px #999 !important;
     border-radius: 10%;
 }
-main article > span.modified {
-    font-size: 11px;
-    color: #876;
+main article span.modified {
+    margin-left: 4px;
 }
-main article > span.modified::before {
+main article > header span,
+main article > p span {
+    font-size: 11px;
+    padding: 0 6px;
+    color: #876;
+    background: #eee6e0;
+    border-radius: 9px;
+}
+main article > header span::before,
+main article > p span::before {
     content: "--";
 }
-main article > time,
-main article > span.tags a {
+main article p.date time,
+main article p.tags a {
     color: #666;
 }
-main article > span.section a {
+main article p.section a {
     background: #666;
     color: #fff;
 }

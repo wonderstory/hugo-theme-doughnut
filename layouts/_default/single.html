@@ -9,11 +9,12 @@
 
 {{ define "main" }}
 <article>
+<header>
 <h1>{{ .Title }}</h1>
-
 {{ .Render "item-time" }}
 {{ .Render "item-tags" }}
 {{ .Render "item-extra" }}
+</header>
 
 <div class="content">
 {{ .Content }}
