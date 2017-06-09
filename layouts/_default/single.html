@@ -23,8 +23,8 @@
 
 {{ if or .PrevInSection .NextInSection }}
 <div id="neighbors">
-{{ with .PrevInSection }}<a rel="prev" href="{{ .URL }}">{{ .Title }}</a>{{ end }}
-{{ with .NextInSection }}<a rel="next" href="{{ .URL }}">{{ .Title }}</a>{{ end }}
+{{ with .PrevInSection }}<a rel="prev" href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
+{{ with .NextInSection }}<a rel="next" href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
 </div>
 {{ end }}
 
