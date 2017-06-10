@@ -16,7 +16,7 @@ div#logo.wd > *::before,
 .content h2::before,
 .content h3::before,
 .content h4::before {
-    font-family: "FontAwesome", "Ubuntu", sans-serif;
+    font-family: "FontAwesome";
     font-size: 40px;
     content: "\f10c";
     color: #eee6e0;
@@ -277,7 +277,7 @@ nav a mark {
 .content h2,
 .content h3,
 .content h4 {
-    margin-top: 2em;
+    margin-top: 32px;
 }
 
 .content pre {
