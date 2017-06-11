@@ -29,7 +29,7 @@
 <footer>
 <div id="link">{{ $iconsize := .Site.Params.linkiconsize | default "lg" | plainify }}
 {{ range .Site.Params.links }}
-<a href="{{ .url | safeURL }}" aria-label="{{ .title | plainify }}"><i class="fa fa-{{ $iconsize }} fa-{{ .fa | plainify }}" aria-hidden="true"></i></a>
+<a href="{{ .url | safeURL }}" title="{{ .title | plainify }}" aria-label="{{ .title | plainify }}"><i class="fa fa-{{ $iconsize }} fa-{{ .fa | plainify }}" aria-hidden="true"></i></a>
 {{ end }}
 </div>
 
