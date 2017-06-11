@@ -302,12 +302,12 @@ nav a mark {
 }
 .content figure img,
 .content figure > * {
-    width: 100%;
+    width: auto;
 }
-@media (min-width: 600px) {
+@media not all and (min-width: 600px) {
 .content figure img,
 .content figure > * {
-    width: auto;
+    width: 100%;
 }
 }/**/
 .content figure figcaption {
