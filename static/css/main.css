@@ -91,7 +91,8 @@ body > header {
 }
 
 
-main > h1 {
+main > h1,
+main header > h1 {
     font-size: 20px;
     display: inline-block;
 }
