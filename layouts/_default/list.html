@@ -8,6 +8,7 @@
 
 {{ define "main" }}
 {{ $pagination := (.Paginate .Data.Pages.ByDate.Reverse).Pages }}
+{{ with .Data.Plural }}<p class="tags"><a href="{{ . | absURL }}/">{{ . | title }}</a>:</p>{{ end }}
 <h1>{{ .Title }}</h1>
 {{ if and ($pagination) (gt .Paginator.TotalPages 1) }}<h2>page {{ .Paginator.PageNumber }}</h2>{{ end }}
 

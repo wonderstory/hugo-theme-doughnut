@@ -8,6 +8,7 @@ h1, h2, h3, h4, h5, h6,
 figcaption,
 div#logo a, nav#menu, time, p.section, p.tags,
 div#paging, div#neighbors,
+ul#tagcloud a,
 div#author {
     font-family: 'Ubuntu', 'Yu Gothic Medium', 'YuGothic', sans-serif;
 }
@@ -91,6 +92,10 @@ body > header {
 }
 
 
+main > p.tags {
+    margin: 0;
+    font-weight: 300;
+}
 main > h1,
 main header > h1 {
     font-size: 20px;
@@ -141,7 +146,8 @@ main article > h3 {
     margin-right: 4px;
 }
 main article > header p a,
-main article > p a {
+main article > p a,
+ul#tagcloud li a {
     padding: 1px 3px;
     border: solid 1px #999 !important;
     border-radius: 10%;
@@ -229,6 +235,20 @@ div#paging a mark {
     color: #ccc;
 } 
 
+ul#tagcloud, ul#tagcloud li {
+    margin-left: 0;
+    padding: 0;
+    list-style: none;
+}
+ul#tagcloud li {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 4px;
+}
+ul#tagcloud span.count {
+    font-size: 14px;
+    color: #999;
+}
 
 /*
 footer > div#link {

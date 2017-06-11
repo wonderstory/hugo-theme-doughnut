@@ -9,9 +9,13 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 
-<ul>
+{{ if .Data.Terms }}
+<ul id="tagcloud">
 {{ range $key, $value := .Data.Terms }}
-    <li><a href="{{ delimit (slice $.Data.Plural $key) "/" | absURL }}">{{ $key }}</a> ({{ len $value }})</li>
+    <li><a href="{{ delimit (slice $.Data.Plural $key) "/" | absURL }}">{{ $key }}</a> <span class="count">({{ len $value }})</span></li>
 {{ end }}
 </ul>
+{{ else }}
+<p>no data found</p>
+{{ end }}
 {{ end }}
