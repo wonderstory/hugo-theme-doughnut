@@ -21,6 +21,8 @@
 </div>
 </article>
 
+{{ partial "related.html" . }}
+
 {{ if or .PrevInSection .NextInSection }}
 <div id="neighbors">
 {{ with .PrevInSection }}<a rel="prev" href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
