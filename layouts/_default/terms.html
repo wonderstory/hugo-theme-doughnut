@@ -11,8 +11,8 @@
 
 {{ if .Data.Terms }}
 <ul id="tagcloud">
-{{ range $key, $value := .Data.Terms }}
-    <li><a href="{{ delimit (slice $.Data.Plural $key) "/" | absURL }}">{{ $key }}</a> <span class="count">({{ len $value }})</span></li>
+{{ range .Data.Terms }}
+    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span class="count">({{ .Count }})</span></li>
 {{ end }}
 </ul>
 {{ else }}
