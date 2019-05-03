@@ -13,6 +13,12 @@ div#author {
     font-family: 'Ubuntu', 'Yu Gothic Medium', 'YuGothic', sans-serif;
 }
 
+.content pre,
+.content code,
+.moved samp {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+}
+
 div#logo.wd > *::before,
 .content h2::before,
 .content h3::before,
@@ -293,6 +299,7 @@ body > footer {
 a {
     color: #000;
     text-decoration: none;
+    transition: all 0.2s ease;
 }
 main a[href] {
     border-bottom: solid 1px #ccc;
@@ -304,6 +311,10 @@ a mark {
 nav a mark {
     font-weight: 200;
     color: #ccc;
+}
+
+a:hover {
+    opacity: 0.8;
 }
 
 
