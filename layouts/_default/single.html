@@ -2,8 +2,8 @@
 
 
 {{ define "head" }}
-<link rel="canonical" href="{{ .Permalink }}">
-{{ range .AlternativeOutputFormats }}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">{{ end }}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ range .AlternativeOutputFormats }}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />{{ end }}
 {{ end }}
 
 

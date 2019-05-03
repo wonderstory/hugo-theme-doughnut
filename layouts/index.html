@@ -1,5 +1,5 @@
 {{ define "head" }}
-{{ with .Site.Home.AlternativeOutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ $.Site.Title | plainify }}" href="{{ .Permalink }}">{{ end }}
+{{ with .Site.Home.AlternativeOutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ $.Site.Title | plainify }}" href="{{ .Permalink }}" />{{ end }}
 {{ end }}
 
 
