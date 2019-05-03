@@ -14,8 +14,7 @@ div#author {
 }
 
 .content pre,
-.content code,
-.moved samp {
+.content code {
     font-family: 'Consolas', 'Courier New', Courier, monospace;
 }
 
