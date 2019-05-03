@@ -2,7 +2,7 @@
 
 
 {{ define "head" }}
-{{ if .RSSLink }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ .Title }} in {{ .Site.Title }}" href="{{ .RSSLink }}">{{ end }}
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="RSS Feed : {{ $.Title | plainify }} in {{ $.Site.Title | plainify }}" href="{{ .RelPermalink }}">{{ end }}
 {{ end }}
 
 
