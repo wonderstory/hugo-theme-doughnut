@@ -1,11 +1,11 @@
-{{ if .IsNamedParams }}
+{{- if .IsNamedParams -}}
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     <figcaption>{{ .Get "caption" }}</figcaption>
-    {{ .Inner }}
+    <pre><code>{{ trim .Inner "\r\n " }}</code></pre>
 </figure>
-{{ else }}
+{{- else -}}
 <figure{{ if len .Params | eq 2 }} class="{{ .Get 1 }}"{{ end }}>
     <figcaption>{{ .Get 0 }}</figcaption>
-    {{ .Inner }}
+    <pre><code>{{ trim .Inner "\r\n " }}</code></pre>
 </figure>
-{{ end }}
+{{- end -}}
