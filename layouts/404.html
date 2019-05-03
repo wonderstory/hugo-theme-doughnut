@@ -24,10 +24,8 @@
 <section>
 <h2>Division</h2>
 <ul>
-{{ range $section_name, $section := .Site.Sections }}
-{{ if $section_name }}
-<li><a href="{{ $section_name | absURL }}/">{{ $section_name }}</a></li>
-{{ end }}
+{{ range .Site.Sections }}
+<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 {{ end }}
 </ul>
 </section>
