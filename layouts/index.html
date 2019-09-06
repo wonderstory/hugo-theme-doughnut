@@ -7,7 +7,7 @@
 <h2>Latest</h2>
 
 <div>
-{{ range first 5 .Data.Pages }}
+{{ range first 5 .Site.RegularPages }}
 <article>
 {{ .Render "item-title" }}
 {{ .Render "item-time" }}
