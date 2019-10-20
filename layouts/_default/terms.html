@@ -12,7 +12,7 @@
 {{ if .Data.Terms }}
 <ul id="tagcloud">
 {{ range .Data.Terms }}
-    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> <span class="count">({{ .Count }})</span></li>
+    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a><span class="count"><span class="braket">(</span>{{ .Count }}<span class="braket">)</span></span></li>
 {{ end }}
 </ul>
 {{ else }}
