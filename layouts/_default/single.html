@@ -8,7 +8,7 @@
 
 
 {{ define "main" }}
-<article>
+{{ if .Draft }}<article class="draft">{{ else }}<article>{{ end }}
 <header>
 <h1>{{ .Title }}</h1>
 {{ .Render "item-time" }}

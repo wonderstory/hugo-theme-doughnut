@@ -14,7 +14,7 @@
 
 <div>
 {{ range $pagination }}
-<article>
+{{ if .Draft }}<article class="draft">{{ else }}<article>{{ end }}
 {{ .Render "item-title" }}
 {{ .Render "item-time" }}
 {{ .Render "item-tags" }}

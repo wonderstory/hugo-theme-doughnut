@@ -8,7 +8,7 @@
 
 <div>
 {{ range first 5 .Site.RegularPages }}
-<article>
+{{ if .Draft }}<article class="draft">{{ else }}<article>{{ end }}
 {{ .Render "item-title" }}
 {{ .Render "item-time" }}
 {{ .Render "item-section" }}
