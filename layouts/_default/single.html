@@ -3,13 +3,16 @@
 
 {{ define "head" }}
 <link rel="canonical" href="{{ .Permalink }}" />
-{{ range .AlternativeOutputFormats }}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />{{ end }}
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />
+{{- end }}
 {{ end }}
 
 
 {{ define "main" }}
 {{ if .Draft }}<article class="draft">{{ else }}<article>{{ end }}
 <header>
+{{ .Render "item-pre" }}
 <h1>{{ .Title }}</h1>
 {{ .Render "item-time" }}
 {{ .Render "item-tags" }}
@@ -23,11 +26,11 @@
 
 {{ partial "related.html" . }}
 
-{{ if or .PrevInSection .NextInSection }}
+{{- if or .PrevInSection .NextInSection }}
 <div id="neighbors">
-{{ with .PrevInSection }}<a rel="prev" href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
-{{ with .NextInSection }}<a rel="next" href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
+{{- with .PrevInSection }}<a rel="prev" href="{{ .Permalink }}">{{ .Title }}</a>{{- end }}
+{{- with .NextInSection }}<a rel="next" href="{{ .Permalink }}">{{ .Title }}</a>{{- end }}
 </div>
-{{ end }}
+{{- end }}
 
-{{ end }}
+{{- end }}

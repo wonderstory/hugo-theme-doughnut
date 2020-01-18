@@ -1,1 +1,7 @@
-{{ with .Params.tags }}<p class="tags"><!--i class="fa fa-tags" aria-hidden="true"></i-->{{ range . }} <a href="{{ delimit (slice "tags" .) "/" | absURL }}/">{{ . }}</a>{{ end }}</p>{{ end }}
+{{- with .Params.tags }}
+<p class="tags"><!--i class="fa fa-tags" aria-hidden="true"></i-->
+{{- range . }}
+<a href="{{ delimit (slice "tags" .) "/" | absURL }}/">{{ . }}</a>
+{{- end }}
+</p>
+{{- end }}

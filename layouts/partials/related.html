@@ -1,11 +1,11 @@
 {{ $related := .Site.RegularPages.Related . | first 5 }}
-{{ with $related }}
+{{- with $related }}
 <div id="related">
 <h2>Related</h2>
 <ul>
-{{ range . }}
+{{- range . }}
 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-{{ end }}
+{{- end }}
 </ul>
 </div>
-{{ end }}
+{{- end }}

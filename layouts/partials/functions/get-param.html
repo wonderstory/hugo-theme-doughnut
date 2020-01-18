@@ -1,0 +1,11 @@
+{{ $page := .page }}
+{{ $param := .param }}
+
+{{ $value := false }}
+{{ $value = index $page.Params $param }}
+
+{{ if and (not $value) $page.Parent }}
+    {{ $value = partial "functions/get-param" (dict "page" $page.Parent "param" $param ) }}
+{{ end }}
+
+{{ return $value }}

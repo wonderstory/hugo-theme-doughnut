@@ -10,15 +10,15 @@
 
 <header>
 <div id="logo"{{ if .Site.Params.withdoughnutlogo }} class="wd"{{ end }}>
-{{ if .IsHome }}
+{{- if .IsHome }}
 <h1>{{ .Site.Title }}</h1>
-{{ else }}
+{{- else }}
 <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-{{ end }}
+{{- end }}
 </div>
 
 <nav id="menu">
-{{ partial "menu.html" . }}
+{{- partial "menu.html" . }}
 </nav>
 </header>
 
@@ -28,33 +28,32 @@
 
 <footer>
 <div id="link">{{ $iconsize := .Site.Params.linkiconsize | default "lg" | plainify }}
-{{ range .Site.Params.links }}
+{{- range .Site.Params.links }}
 <a href="{{ .url | safeURL }}" title="{{ .title | plainify }}" aria-label="{{ .title | plainify }}"><i class="fa fa-{{ $iconsize }} fa-{{ .fa | plainify }}" aria-hidden="true"></i></a>
-{{ end }}
+{{- end }}
 </div>
 
 <div id="author">
-{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}
+{{- if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{- else }}
 
-{{ if .Site.Params.author }}
+{{- if .Site.Params.author }}
 {{- if .Site.Params.author.url -}}
 <b><a href="{{ .Site.Params.author.url | safeURL }}">{{ .Site.Params.author.name }}</b></a>
 {{- else -}}
 <b>{{ .Site.Params.author.name }}</b>
 {{- end -}}
-{{ end }}
+{{- end }}
 
-{{ if and .IsPage .Params.license }}
+{{- if and .IsPage .Params.license }}
 <a rel="license" href="{{ .Params.license.url }}">{{ .Params.license.name }}</a>
-{{ else if .Site.Params.license }}
+{{- else if .Site.Params.license }}
 <a rel="license" href="{{ .Site.Params.license.url }}">{{ .Site.Params.license.name }}</a>
-{{ end }}
+{{- end }}
 
-{{ end }}
+{{- end }}
 </div>
-{{ partial "footer.html" . }}
+{{- partial "footer.html" . }}
 </footer>
-
-{{ template "_internal/google_analytics_async.html" . }}
+{{- template "_internal/google_analytics_async.html" . }}
 </body>
 </html>

@@ -1,0 +1,14 @@
+{{ $page := .page }}
+
+{{ $parent := false }}
+
+{{ if $page.Parent }}
+    {{ $parent = partial "functions/get-parents" (dict "page" $page.Parent ) }}
+{{ end }}
+
+{{ $list := slice $page }}
+{{ if $parent }}
+    {{ $list = $parent | append $list }}
+{{ end }}
+
+{{ return $list }}
